@@ -1,0 +1,288 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* NOVA brand colors */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-amber-accent: var(--amber-accent);
+  --color-amber-accent-foreground: var(--amber-accent-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.99 0.002 95);
+  --foreground: oklch(0.18 0.01 150);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 150);
+  /* NOVA primary = deep emerald (commerce, growth, trust) */
+  --primary: oklch(0.55 0.13 162);
+  --primary-foreground: oklch(0.99 0.002 95);
+  --secondary: oklch(0.97 0.005 150);
+  --secondary-foreground: oklch(0.25 0.02 162);
+  --muted: oklch(0.97 0.005 150);
+  --muted-foreground: oklch(0.5 0.01 150);
+  --accent: oklch(0.96 0.02 90);
+  --accent-foreground: oklch(0.25 0.02 162);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.005 150);
+  --input: oklch(0.91 0.005 150);
+  --ring: oklch(0.55 0.13 162);
+  /* NOVA amber accent (energy, Côte d'Ivoire) */
+  --amber-accent: oklch(0.7 0.17 75);
+  --amber-accent-foreground: oklch(0.2 0.02 75);
+  --brand: oklch(0.55 0.13 162);
+  --brand-foreground: oklch(0.99 0.002 95);
+  --chart-1: oklch(0.55 0.13 162);
+  --chart-2: oklch(0.7 0.17 75);
+  --chart-3: oklch(0.6 0.118 184.704);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.003 150);
+  --sidebar-foreground: oklch(0.2 0.01 150);
+  --sidebar-primary: oklch(0.55 0.13 162);
+  --sidebar-primary-foreground: oklch(0.99 0.002 95);
+  --sidebar-accent: oklch(0.95 0.01 150);
+  --sidebar-accent-foreground: oklch(0.25 0.02 162);
+  --sidebar-border: oklch(0.91 0.005 150);
+  --sidebar-ring: oklch(0.55 0.13 162);
+}
+
+.dark {
+  --background: oklch(0.16 0.005 150);
+  --foreground: oklch(0.97 0.002 150);
+  --card: oklch(0.21 0.008 150);
+  --card-foreground: oklch(0.97 0.002 150);
+  --popover: oklch(0.21 0.008 150);
+  --popover-foreground: oklch(0.97 0.002 150);
+  /* Brighter emerald for dark mode contrast */
+  --primary: oklch(0.7 0.16 162);
+  --primary-foreground: oklch(0.16 0.005 150);
+  --secondary: oklch(0.27 0.01 150);
+  --secondary-foreground: oklch(0.97 0.002 150);
+  --muted: oklch(0.27 0.01 150);
+  --muted-foreground: oklch(0.71 0.005 150);
+  --accent: oklch(0.3 0.025 90);
+  --accent-foreground: oklch(0.97 0.002 150);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.16 162);
+  --amber-accent: oklch(0.78 0.16 75);
+  --amber-accent-foreground: oklch(0.16 0.005 150);
+  --brand: oklch(0.7 0.16 162);
+  --brand-foreground: oklch(0.16 0.005 150);
+  --chart-1: oklch(0.7 0.16 162);
+  --chart-2: oklch(0.78 0.16 75);
+  --chart-3: oklch(0.696 0.17 162.48);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.21 0.008 150);
+  --sidebar-foreground: oklch(0.97 0.002 150);
+  --sidebar-primary: oklch(0.7 0.16 162);
+  --sidebar-primary-foreground: oklch(0.16 0.005 150);
+  --sidebar-accent: oklch(0.27 0.01 150);
+  --sidebar-accent-foreground: oklch(0.97 0.002 150);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.7 0.16 162);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Custom utility for NOVA amber accent background */
+  .bg-amber-accent {
+    background-color: var(--amber-accent);
+  }
+  .text-amber-accent {
+    color: var(--amber-accent);
+  }
+  .bg-brand {
+    background-color: var(--brand);
+  }
+  .text-brand {
+    color: var(--brand);
+  }
+  .border-brand {
+    border-color: var(--brand);
+  }
+}
+
+/* Thin scrollbar for sidebar/lists */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* === NOVA Premium Login — Glassmorphism === */
+
+/* Glass utility — frosted glass effect */
+.glass {
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Soft glass — lighter blur for pills/badges */
+.glass-soft {
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Aurora gradient — animated branding background */
+.nova-brand-gradient {
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      oklch(0.7 0.15 162 / 0.6) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      oklch(0.78 0.16 75 / 0.4) 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      oklch(0.45 0.12 162) 0%,
+      oklch(0.35 0.1 175) 50%,
+      oklch(0.3 0.08 180) 100%
+    );
+  background-size: 200% 200%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* Form panel — subtle ambient mesh */
+.nova-form-gradient {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      oklch(0.55 0.13 162 / 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      oklch(0.7 0.17 75 / 0.03) 0%,
+      transparent 50%
+    );
+}
+
+/* Keyframes */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(400%) skewX(-12deg);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nova-brand-gradient {
+    animation: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
