@@ -4,6 +4,7 @@ import * as React from "react";
 import { MobileSidebar, Sidebar } from "./sidebar";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { ViewErrorBoundary } from "./view-error-boundary";
 import { useUIStore } from "@/stores/ui-store";
 import { HomeView } from "@/components/views/home-view";
 import { ProductsView } from "@/components/views/products-view";
@@ -20,6 +21,21 @@ import { ProfileView } from "@/components/views/profile-view";
 export function DashboardShell() {
   const currentView = useUIStore((s) => s.currentView);
 
+  const renderView = () => {
+    if (currentView === "home") return <HomeView />;
+    if (currentView === "products") return <ProductsView />;
+    if (currentView === "stock") return <StockView />;
+    if (currentView === "orders") return <OrdersView />;
+    if (currentView === "conversations") return <ConversationsView />;
+    if (currentView === "customers") return <CustomersView />;
+    if (currentView === "payment") return <PaymentConfigView />;
+    if (currentView === "stats") return <StatsView />;
+    if (currentView === "subscription") return <SubscriptionView />;
+    if (currentView === "team") return <TeamView />;
+    if (currentView === "profile") return <ProfileView />;
+    return null;
+  };
+
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
       <div className="flex flex-1 overflow-hidden">
@@ -35,17 +51,9 @@ export function DashboardShell() {
               <React.Suspense
                 fallback={<div className="p-8 text-sm text-muted-foreground">Chargement…</div>}
               >
-                {currentView === "home" && <HomeView />}
-                {currentView === "products" && <ProductsView />}
-                {currentView === "stock" && <StockView />}
-                {currentView === "orders" && <OrdersView />}
-                {currentView === "conversations" && <ConversationsView />}
-                {currentView === "customers" && <CustomersView />}
-                {currentView === "payment" && <PaymentConfigView />}
-                {currentView === "stats" && <StatsView />}
-                {currentView === "subscription" && <SubscriptionView />}
-                {currentView === "team" && <TeamView />}
-                {currentView === "profile" && <ProfileView />}
+                <ViewErrorBoundary viewName={currentView}>
+                  {renderView()}
+                </ViewErrorBoundary>
               </React.Suspense>
             </div>
           </main>
