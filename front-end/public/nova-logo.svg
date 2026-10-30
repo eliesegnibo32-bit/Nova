@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Aurora gradient: turquoise → emerald → amber gold -->
+    <linearGradient id="auroraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="40%" stop-color="#10b981"/>
+      <stop offset="75%" stop-color="#0e8a5f"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <!-- Glow gradient for the outer ring -->
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.8"/>
+    </linearGradient>
+    <!-- Inner highlight gradient -->
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Drop shadow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background with dark gradient -->
+  <rect width="512" height="512" rx="112" fill="#0a1f17"/>
+
+  <!-- Outer glow ring -->
+  <rect x="48" y="48" width="416" height="416" rx="88" fill="none" stroke="url(#glowGrad)" stroke-width="3" opacity="0.6"/>
+
+  <!-- The "N" letter - stylized aurora wave 3D effect -->
+  <!-- Main N shape with aurora gradient -->
+  <g filter="url(#glow)">
+    <!-- Left stroke of N -->
+    <path d="M140 372 L140 140 L196 140 L196 372 Z" fill="url(#auroraGrad)"/>
+    <!-- Right stroke of N -->
+    <path d="M316 372 L316 140 L372 140 L372 372 Z" fill="url(#auroraGrad)"/>
+    <!-- Diagonal connecting stroke (the wave) -->
+    <path d="M196 140 L316 372 L268 372 L196 228 Z" fill="url(#auroraGrad)" opacity="0.9"/>
+    <!-- Mirror diagonal for 3D depth -->
+    <path d="M196 140 L316 372 L316 312 L196 80 Z" fill="url(#auroraGrad)" opacity="0.6"/>
+  </g>
+
+  <!-- Glass highlight overlay on the N -->
+  <path d="M140 140 L196 140 L196 372 L140 372 Z" fill="url(#highlightGrad)" opacity="0.5"/>
+  <path d="M316 140 L372 140 L372 372 L316 372 Z" fill="url(#highlightGrad)" opacity="0.3"/>
+
+  <!-- AI spark accents (amber) -->
+  <!-- Main spark top right -->
+  <path d="M388 96 C392 112, 404 124, 420 128 C404 132, 392 144, 388 160 C384 144, 372 132, 356 128 C372 124, 384 112, 388 96 Z" fill="#fbbf24" opacity="0.95"/>
+  <!-- Small spark dots -->
+  <circle cx="120" cy="120" r="4" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="396" cy="372" r="3" fill="#5eead4" opacity="0.6"/>
+
+  <!-- Subtle wave lines (aurora effect) -->
+  <path d="M80 280 Q140 260, 200 280 T320 280 T440 280" stroke="url(#glowGrad)" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M80 300 Q140 280, 200 300 T320 300 T440 300" stroke="url(#glowGrad)" stroke-width="1" fill="none" opacity="0.2"/>
+</svg>
